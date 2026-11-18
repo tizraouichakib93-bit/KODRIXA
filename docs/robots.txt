@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /index-legacy.html
+
+Sitemap: https://tizraouichakib93-bit.github.io/KODRIXA/sitemap.xml
