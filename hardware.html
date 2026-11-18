@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hardware Projects · KODRIXA</title>
+  <meta name="description" content="Curated Arduino builds with components, wiring diagrams, safety notes and ready-to-upload sketches.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="platform.css">
+  <script defer src="js/core.js"></script>
+  <script defer src="js/languages.js"></script>
+  <script defer src="js/highlight.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="js/pages/hardware.js"></script>
+</head>
+<body>
+  <noscript><p style="padding:100px 24px;text-align:center">KODRIXA needs JavaScript to run its code tools. Please enable it and reload.</p></noscript>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Tool 05 · Hardware</span>
+        <h1>From code <span class="gradient-text">to circuit.</span></h1>
+        <p class="lede">Curated Arduino starter builds — each with a complete components list, a logical wiring map, safety notes and an editable sketch you can copy straight into the Arduino IDE.</p>
+        <div class="note-box" style="margin-top:22px"><strong>Curated local library.</strong> These builds are hand-verified examples bundled with KODRIXA, not live AI output. Always disconnect power while wiring.</div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-bottom:80px">
+      <div id="hwBrowse">
+        <section class="card hw-prompt-card reveal" aria-label="Find a project">
+          <h2>What do you want to build?</h2>
+          <p>Describe it in a few words and KODRIXA matches the closest curated build — or browse the full library below.</p>
+          <div class="prompt-row">
+            <textarea class="textarea" id="hwPrompt" rows="2" placeholder="e.g. I want to blink an LED, measure distance with an ultrasonic sensor, or check my plant's soil moisture…"></textarea>
+            <button type="button" class="button button-primary" id="hwFind"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Find a build</button>
+          </div>
+          <div id="hwMatchNote"></div>
+        </section>
+
+        <div class="hw-toolbar">
+          <div class="search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" class="search-input" id="hwSearch" placeholder="Search projects, parts, keywords…" aria-label="Search hardware projects">
+          </div>
+          <div class="chip-row" id="hwFilterChips"></div>
+        </div>
+
+        <div class="hw-grid" id="hwGrid"></div>
+        <div id="hwEmpty" hidden>
+          <div class="state state-empty"><span class="state-glyph spark">✦</span><p class="state-title">No builds match</p><p class="state-sub">Try a different keyword or clear the difficulty filter. The library covers LED blinking, ultrasonic distance and soil-moisture monitoring.</p></div>
+        </div>
+      </div>
+
+      <section id="hwDetail" class="hw-detail" hidden aria-label="Project details">
+        <div class="hw-detail-head">
+          <button type="button" class="text-button" id="hwBack"><svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M19 12H5m6-6-6 6 6 6"/></svg>All projects</button>
+          <h2 id="hwTitle"></h2>
+          <div class="hw-meta" id="hwMeta"></div>
+          <p class="hw-desc" id="hwDesc"></p>
+          <div class="note-box" id="hwBoard"></div>
+          <div class="safety-note" id="hwSafety"></div>
+        </div>
+
+        <div class="pane">
+          <div class="tabs" id="hwTabs" role="tablist" aria-label="Project sections">
+            <button type="button" class="tab active" data-tab="code" role="tab" aria-selected="true">Sketch code</button>
+            <button type="button" class="tab" data-tab="components" role="tab" aria-selected="false">Components</button>
+            <button type="button" class="tab" data-tab="wiring" role="tab" aria-selected="false">Wiring</button>
+            <button type="button" class="tab" data-tab="guide" role="tab" aria-selected="false">Build guide</button>
+          </div>
+          <div class="tab-body" id="hwTab-code" role="tabpanel">
+            <div class="hw-code-actions">
+              <button type="button" class="button button-ghost button-small" id="hwCopy"><svg class="icon" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>Copy sketch</button>
+              <button type="button" class="button button-ghost button-small" id="hwDownload"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Download .ino</button>
+            </div>
+            <div id="hwCodeWrap"></div>
+          </div>
+          <div class="tab-body" id="hwTab-components" role="tabpanel" hidden><div id="hwComponents"></div></div>
+          <div class="tab-body" id="hwTab-wiring" role="tabpanel" hidden>
+            <div class="wiring-grid">
+              <div id="hwWiringSvg"></div>
+              <div id="hwWiringList"></div>
+            </div>
+          </div>
+          <div class="tab-body" id="hwTab-guide" role="tabpanel" hidden><div id="hwGuide"></div></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

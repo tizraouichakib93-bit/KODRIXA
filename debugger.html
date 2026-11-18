@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Debugger · KODRIXA</title>
+  <meta name="description" content="Find syntax errors across 15 languages with line-level explanations and a corrected, editable copy of your code.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="platform.css">
+  <script defer src="js/core.js"></script>
+  <script defer src="js/languages.js"></script>
+  <script defer src="js/highlight.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/dropdown.js"></script>
+  <script defer src="js/debug.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/pages/debugger.js"></script>
+</head>
+<body>
+  <noscript><p style="padding:100px 24px;text-align:center">KODRIXA needs JavaScript to run its code tools. Please enable it and reload.</p></noscript>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Tool 03 · Debug</span>
+        <h1>Find the bug. <span class="gradient-text">Understand the fix.</span></h1>
+        <p class="lede">Paste code in any of 15 languages and KODRIXA scans for syntax problems — unbalanced brackets, open strings, missing terminators and more — then explains each finding and offers a corrected copy.</p>
+        <div id="modeNote" class="mode-note is-demo"></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="workbench">
+        <section class="pane" aria-label="Code to debug">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="13" r="5"/><path d="M12 8V5M9 5h6M7 10 4 8M17 10l3-2M7 16l-3 2M17 16l3 2M12 11v4"/></svg></span>Code under test</h2>
+          </div>
+          <div class="pane-body">
+            <div class="field">
+              <div class="field-label"><span>Language</span></div>
+              <div id="dbgLang"></div>
+              <p class="hint" id="dbgCapNote" style="margin-top:9px"></p>
+            </div>
+            <div class="field">
+              <div class="field-label"><span>Try a known-buggy sample</span></div>
+              <div class="chip-row" id="dbgSamples"></div>
+            </div>
+            <div class="field">
+              <div class="field-label"><span>Paste or edit your code</span></div>
+              <div id="dbgSourceWrap"></div>
+            </div>
+            <div class="run-row">
+              <button type="button" class="button button-primary" id="dbgRun"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Analyze code</button>
+              <button type="button" class="button button-subtle" id="dbgApply" disabled><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>Apply fix to editor</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="pane" aria-label="Debug results">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.5"/></svg></span>Diagnostics</h2>
+            <div class="result-actions">
+              <button type="button" class="button button-ghost button-small" id="dbgCopy"><svg class="icon" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>Copy fixed</button>
+              <button type="button" class="button button-ghost button-small" id="dbgDownload"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Download</button>
+            </div>
+          </div>
+          <div class="pane-body">
+            <div id="dbgState"></div>
+            <div id="dbgSummary"></div>
+            <div id="dbgResults"></div>
+            <div id="dbgFixedWrap" hidden><h3 class="fixed-title">Corrected code</h3></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

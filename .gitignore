@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Secrets / environment — never commit provider keys
+.env
+*.key
+*.pem
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini

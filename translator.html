@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Translator · KODRIXA</title>
+  <meta name="description" content="Translate code between 15 languages with searchable selectors, honest limitation reports and an editable result.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="platform.css">
+  <script defer src="js/core.js"></script>
+  <script defer src="js/languages.js"></script>
+  <script defer src="js/highlight.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/dropdown.js"></script>
+  <script defer src="js/synth.js"></script>
+  <script defer src="js/translate.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/pages/translator.js"></script>
+</head>
+<body>
+  <noscript><p style="padding:100px 24px;text-align:center">KODRIXA needs JavaScript to run its code tools. Please enable it and reload.</p></noscript>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Tool 02 · Translate</span>
+        <h1>Same logic. <span class="gradient-text-warm">New language.</span></h1>
+        <p class="lede">Move code between any of 15 languages with searchable source and target selectors. When an accurate conversion is not possible, KODRIXA tells you exactly why instead of guessing.</p>
+        <div id="modeNote" class="mode-note is-demo"></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="workbench">
+        <section class="pane" aria-label="Translation source">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 5h7M7 3v2c0 4-2 7-4 8"/><path d="M5 9c0 2 2 4 5 5"/><path d="m12 20 4-9 4 9M13.5 17h5"/></svg></span>Source code</h2>
+          </div>
+          <div class="pane-body">
+            <div class="tr-lang-row">
+              <div class="tr-lang-field">
+                <div class="field-label"><span>From</span></div>
+                <div id="trFrom"></div>
+              </div>
+              <button type="button" class="tr-swap" id="trSwap" aria-label="Swap source and target languages" title="Swap languages"><svg class="icon" viewBox="0 0 24 24"><path d="M4 7h13m-3-3 3 3-3 3M20 17H7m3-3-3 3 3 3"/></svg></button>
+              <div class="tr-lang-field">
+                <div class="field-label"><span>To</span></div>
+                <div id="trTo"></div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-label"><span>Load an example</span></div>
+              <div class="chip-row" id="trSamples"></div>
+            </div>
+            <div class="field">
+              <div class="field-label"><span>Paste or edit your code</span></div>
+              <div id="trSourceWrap"></div>
+            </div>
+            <div class="run-row">
+              <button type="button" class="button button-primary" id="trRun"><svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Translate</button>
+              <span class="hint">Loops · conditionals · functions · assignments · output</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="pane" aria-label="Translation result">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>Translation <span class="pane-sub" id="trPairLabel" style="margin-left:6px"></span></h2>
+            <div class="result-actions">
+              <button type="button" class="button button-ghost button-small" id="trCopy"><svg class="icon" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>Copy</button>
+              <button type="button" class="button button-ghost button-small" id="trDownload"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Download</button>
+            </div>
+          </div>
+          <div class="pane-body">
+            <div id="trState"></div>
+            <div id="trOutWrap" hidden></div>
+            <div id="trNotes"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

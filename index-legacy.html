@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07070c">
+  <meta name="description" content="KODRIXA is a futuristic coding companion for generating, debugging, converting, and explaining code — plus hands-on Arduino projects. Explore the free local demo.">
+  <title>KODRIXA — Your next idea. Already in code.</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="engine.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#playground">Skip to the coding workspace</a>
+  <svg class="svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-k" viewBox="0 0 32 32"><path d="M6 5h6v10L23 5h8L19 17l12 10h-9L12 18v9H6z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M7 6h11v11"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><path d="M9 5h6m-3 0v3M7 9h10v6a5 5 0 0 1-10 0V9Zm-3 1h3m10 0h3M3 15h4m10 0h4M5 5l3 3m11-3-3 3M5 21l3-3m11 3-3-3m-4-8v8"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 7h15m-4-4 4 4-4 4M20 17H5m4-4-4 4 4 4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v14M6 9h3m-3 4h3m6-4h3m-3 4h3"/></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="9" y="9" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Zm7-1v4m-2-2h4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 9 3 3-3 3m6 0h4"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 7M3 4v7h7m2-4v5l3 2"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-7l0-7Z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Zm0 0v6h6M8 13h8m-8 4h5"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v1"/></symbol>
+    <symbol id="i-wire" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h5v12h5M5 8v8h8V8h6v8"/></symbol>
+  </svg>
+
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="KODRIXA home">
+        <span class="brand-mark"><svg><use href="#i-k"/></svg></span>
+        <span>KODRIXA<span class="brand-period">.</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#tools" data-section="tools">The toolkit</a>
+        <a href="#playground" data-section="playground">Playground</a>
+        <a href="#how-it-works" data-section="how-it-works">How it works</a>
+        <a href="#demo-info" data-section="demo-info">Why KODRIXA</a>
+      </nav>
+      <div class="header-actions">
+        <span class="demo-pill"><span class="status-dot"></span>LOCAL DEMO</span>
+        <a class="button button-small button-primary" href="#playground">Open workspace <svg class="icon"><use href="#i-up-right"/></svg></a>
+        <button class="icon-button menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks"><svg class="icon"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow-pill enter"><svg class="icon"><use href="#i-spark"/></svg> YOUR IDEAS, UPGRADED <span class="pill-divider"></span> MEET KODRIXA</div>
+          <h1 id="heroTitle" class="enter enter-1">Your next idea.<br><span class="gradient-text">Already in code.</span></h1>
+          <p class="hero-description enter enter-2">From “what if” to “it works.” Generate, debug, convert, and understand code — then bring it into the real world with hardware projects.</p>
+          <div class="hero-actions enter enter-3">
+            <a class="button button-primary button-large" href="#playground">Start building <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a class="button button-ghost button-large" href="#tools">Explore the toolkit <svg class="icon"><use href="#i-up-right"/></svg></a>
+          </div>
+          <div class="hero-assurances enter enter-4">
+            <span><svg class="icon"><use href="#i-check"/></svg> Beginner friendly</span>
+            <span><svg class="icon"><use href="#i-check"/></svg> Built for pros, too</span>
+            <span><svg class="icon"><use href="#i-shield"/></svg> Private by design</span>
+          </div>
+        </div>
+
+        <div class="hero-visual enter enter-2" id="heroVisual">
+          <div class="orbital orbital-one" aria-hidden="true"></div>
+          <div class="orbital orbital-two" aria-hidden="true"></div>
+          <div class="core-glow" aria-hidden="true"></div>
+          <div class="hero-window">
+            <div class="window-bar">
+              <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="window-title"><svg class="icon"><use href="#i-k"/></svg> kodrixa / first-build</span>
+              <span class="window-live"><span class="status-dot"></span> DEMO</span>
+            </div>
+            <div class="hero-prompt">
+              <span class="mini-label"><svg class="icon"><use href="#i-spark"/></svg> IT STARTS WITH AN IDEA</span>
+              <p>“Make a countdown timer in Python.”<span class="typing-caret" aria-hidden="true"></span></p>
+            </div>
+            <div class="hero-code-head"><span><span class="python-dot"></span> countdown.py</span><span>CURATED PREVIEW</span></div>
+            <pre class="hero-code"><code><span class="line"><b>01</b><span class="tk-key">import</span> time</span><span class="line"><b>02</b></span><span class="line"><b>03</b><span class="tk-key">def</span> <span class="tk-fn">countdown</span>(seconds):</span><span class="line"><b>04</b>    <span class="tk-key">while</span> seconds &gt; <span class="tk-num">0</span>:</span><span class="line"><b>05</b>        <span class="tk-fn">print</span>(<span class="tk-str">f"Time left: {seconds}s"</span>)</span><span class="line"><b>06</b>        time.<span class="tk-fn">sleep</span>(<span class="tk-num">1</span>)</span><span class="line"><b>07</b>        seconds -= <span class="tk-num">1</span></span><span class="line"><b>08</b>    <span class="tk-fn">print</span>(<span class="tk-str">"Time’s up. Go build!"</span>)</span><span class="line"><b>09</b></span><span class="line"><b>10</b><span class="tk-fn">countdown</span>(<span class="tk-num">10</span>)<span class="code-cursor" aria-hidden="true"></span></span></code></pre>
+            <div class="hero-window-footer">
+              <span><span class="status-dot"></span> A small idea. A real starting point.</span>
+              <button class="hero-run" id="heroRun">Try this idea <svg class="icon"><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+          <div class="floating-chip chip-python"><span class="language-symbol py">Py</span><div><strong>Python</strong><span>Clean. Readable. Yours.</span></div><svg class="icon"><use href="#i-check"/></svg></div>
+          <div class="floating-chip chip-build"><span class="chip-build-icon"><svg class="icon"><use href="#i-bolt"/></svg></span><div><strong>Less friction. More flow.</strong><span>Five tools. One workspace.</span></div></div>
+          <span class="visual-coordinate" aria-hidden="true">KX — 001 / IDEA → EXECUTION</span>
+        </div>
+      </div>
+      <div class="container stack-strip enter enter-4">
+        <span class="stack-label">AT HOME IN YOUR STACK</span>
+        <div class="stack-items"><span><b class="stack-py">Py</b> Python</span><span><b class="stack-js">JS</b> JavaScript</span><span><b class="stack-cpp">C++</b> C++</span><span><b class="stack-html">&lt;/&gt;</b> HTML &amp; CSS</span><span><svg class="icon stack-arduino"><use href="#i-chip"/></svg> Arduino</span></div>
+        <span class="stack-end" aria-hidden="true">AND WHEREVER YOU GO NEXT <svg class="icon"><use href="#i-up-right"/></svg></span>
+      </div>
+    </section>
+
+    <section class="section toolkit-section" id="tools" aria-labelledby="toolsTitle">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow"><span></span> THE TOOLKIT</span><h2 id="toolsTitle">Every step from<br><span class="muted-heading">idea to execution.</span></h2></div>
+          <p>One companion for the whole creative process.<br>Less tab-switching. More “I made that.”</p>
+        </div>
+        <div class="tool-grid">
+          <a class="tool-card card-generator reveal" href="#playground" data-open-tool="generator">
+            <span class="tool-card-top"><span class="tool-icon violet"><svg class="icon"><use href="#i-code"/></svg></span><span class="tool-number">01 / CREATE</span></span>
+            <span class="tool-card-title">Code Generator</span>
+            <span class="tool-card-description">Tell us what you’re imagining. Get a clean, useful starting point — without staring at a blank file.</span>
+            <span class="card-mini generator-mini" aria-hidden="true"><span class="mini-prompt"><svg class="icon"><use href="#i-spark"/></svg> “Build something that…”</span><span class="mini-code-line"><i></i><i></i><i></i></span><span class="mini-code-line indent"><i></i><i></i></span><span class="mini-code-line"><i></i><i></i><i></i></span></span>
+            <span class="tool-card-footer">From idea to first draft <svg class="icon"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="tool-card card-debugger reveal" href="#playground" data-open-tool="debugger">
+            <span class="tool-card-top"><span class="tool-icon blue"><svg class="icon"><use href="#i-bug"/></svg></span><span class="tool-number">02 / REFINE</span></span>
+            <span class="tool-card-title">Code Debugger</span>
+            <span class="tool-card-description">Find the friction in your code. Spot common errors, understand what went wrong, and get back to building.</span>
+            <span class="card-mini debugger-mini" aria-hidden="true"><span class="mini-error-line"><b>04</b><span>if ready<span class="error-squiggle">:</span></span><em>missing colon</em></span><span class="mini-fix-line"><svg class="icon"><use href="#i-check"/></svg> if ready:</span></span>
+            <span class="tool-card-footer">Turn “why?” into “fixed.” <svg class="icon"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="tool-card card-converter reveal" href="#playground" data-open-tool="converter">
+            <span class="tool-card-top"><span class="tool-icon cyan"><svg class="icon"><use href="#i-swap"/></svg></span><span class="tool-number">03 / TRANSLATE</span></span>
+            <span class="tool-card-title">Code Converter</span>
+            <span class="tool-card-description">New language. Same big idea. Move between Python, JavaScript, and C++ with guided examples.</span>
+            <span class="card-mini converter-mini" aria-hidden="true"><span>Py</span><svg class="icon"><use href="#i-swap"/></svg><span>JS</span><svg class="icon"><use href="#i-swap"/></svg><span>C++</span></span>
+            <span class="tool-card-footer">Speak a new language <svg class="icon"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="tool-card card-explainer reveal" href="#playground" data-open-tool="explainer">
+            <span class="tool-card-top"><span class="tool-icon pink"><svg class="icon"><use href="#i-book"/></svg></span><span class="tool-number">04 / UNDERSTAND</span></span>
+            <span class="tool-card-title">Code Explainer</span>
+            <span class="tool-card-description">Go beyond copy-paste. Unpack the logic line by line, in language that actually makes sense.</span>
+            <span class="card-mini explainer-mini" aria-hidden="true"><span><b>01</b> def greet(name):</span><span class="mini-annotation"><svg class="icon"><use href="#i-arrow"/></svg> Say hello, your way.</span></span>
+            <span class="tool-card-footer">Make every line click <svg class="icon"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="tool-card card-hardware reveal" href="#playground" data-open-tool="hardware">
+            <span class="tool-card-top"><span class="tool-icon lime"><svg class="icon"><use href="#i-chip"/></svg></span><span class="tool-number">05 / MAKE IT REAL</span></span>
+            <span class="tool-card-title">Hardware Projects</span>
+            <span class="tool-card-description">Take your code off-screen. Arduino sketches, parts lists, and wiring guides for your next physical build.</span>
+            <span class="card-mini hardware-mini" aria-hidden="true"><svg viewBox="0 0 220 74"><path class="circuit-wire" d="M15 38h45V18h95v40h48M15 52h65v-14h45"/><rect x="83" y="22" width="52" height="34" rx="6"/><path d="M92 16v6m12-6v6m12-6v6m12-6v6M92 56v6m12-6v6m12-6v6m12-6v6M77 30h6m-6 12h6m52-12h6m-6 12h6"/><circle cx="15" cy="38" r="4"/><circle cx="203" cy="58" r="4"/><circle cx="15" cy="52" r="3"/></svg></span>
+            <span class="tool-card-footer">Build beyond the browser <svg class="icon"><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section playground-section" id="playground" aria-labelledby="playgroundTitle">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div><span class="eyebrow"><span></span> THE LIVE PLAYGROUND</span><h2 id="playgroundTitle">Your next <span class="gradient-text">“it works.”</span></h2></div>
+          <div class="playground-heading-note"><span class="demo-pill"><span class="status-dot"></span> INTERACTIVE LOCAL DEMO</span><p>Real interactions. Curated examples. Zero sign-up.</p></div>
+        </div>
+        <div class="workspace reveal" id="workspace">
+          <div class="workspace-top">
+            <div class="workspace-identity"><span class="workspace-logo"><svg><use href="#i-k"/></svg></span><strong>KODRIXA</strong><span class="workspace-slash">/</span><span>workspace</span></div>
+            <div class="workspace-top-actions"><span class="engine-label"><span class="status-dot"></span> Demo engine ready</span><button class="text-button" id="historyToggle"><svg class="icon"><use href="#i-history"/></svg><span>History</span><span class="history-count" id="historyCount">0</span></button><button class="icon-button" id="resetWorkspace" aria-label="Reset workspace" title="Reset workspace"><svg class="icon"><use href="#i-reset"/></svg></button></div>
+          </div>
+          <div class="workspace-body">
+            <aside class="workspace-sidebar">
+              <span class="sidebar-label">YOUR CREATIVE TOOLKIT</span>
+              <div class="tool-tabs" role="tablist" aria-label="Coding tools" aria-orientation="vertical">
+                <button class="tool-tab active" id="tab-generator" role="tab" aria-selected="true" aria-controls="toolPanel" data-tool="generator"><svg class="icon"><use href="#i-code"/></svg><span>Code Generator<small>Give your idea a head start</small></span><span class="tab-active-dot"></span></button>
+                <button class="tool-tab" id="tab-debugger" role="tab" aria-selected="false" aria-controls="toolPanel" tabindex="-1" data-tool="debugger"><svg class="icon"><use href="#i-bug"/></svg><span>Code Debugger<small>Find it. Understand it. Fix it.</small></span><span class="tab-active-dot"></span></button>
+                <button class="tool-tab" id="tab-converter" role="tab" aria-selected="false" aria-controls="toolPanel" tabindex="-1" data-tool="converter"><svg class="icon"><use href="#i-swap"/></svg><span>Code Converter<small>A new language, same idea</small></span><span class="tab-active-dot"></span></button>
+                <button class="tool-tab" id="tab-explainer" role="tab" aria-selected="false" aria-controls="toolPanel" tabindex="-1" data-tool="explainer"><svg class="icon"><use href="#i-book"/></svg><span>Code Explainer<small>Make the complex click</small></span><span class="tab-active-dot"></span></button>
+                <button class="tool-tab" id="tab-hardware" role="tab" aria-selected="false" aria-controls="toolPanel" tabindex="-1" data-tool="hardware"><svg class="icon"><use href="#i-chip"/></svg><span>Hardware Projects<small>Code, meet the real world</small></span><span class="tab-active-dot"></span></button>
+              </div>
+              <div class="sidebar-privacy"><svg class="icon"><use href="#i-shield"/></svg><strong>Your code stays yours.</strong><p>Everything runs in this browser. Nothing is uploaded.</p><a href="#demo-info">About this demo <svg class="icon"><use href="#i-up-right"/></svg></a></div>
+              <div class="sidebar-bottom"><span class="status-dot"></span> LOCAL SESSION <span>v1.0</span></div>
+            </aside>
+            <section class="workspace-main" id="toolPanel" role="tabpanel" aria-labelledby="tab-generator" tabindex="0">
+              <div class="tool-panel-head"><div><span class="panel-eyebrow" id="panelEyebrow">CREATE / 01</span><h3 id="panelTitle">What are we building?</h3><p id="panelDescription">Describe a small project, or start with one of our hand-built examples.</p></div><span class="panel-tool-icon" id="panelIcon"><svg class="icon"><use href="#i-code"/></svg></span></div>
+              <div class="tool-controls" id="toolControls"></div>
+              <div class="editor-grid">
+                <div class="input-pane">
+                  <div class="pane-label"><label for="codeInput" id="inputLabel">DESCRIBE YOUR IDEA</label><button class="text-button tiny" id="clearInput">Clear <svg class="icon"><use href="#i-close"/></svg></button></div>
+                  <div class="editor-wrap"><textarea id="codeInput" spellcheck="false" autocomplete="off" placeholder="e.g. Make a countdown timer in Python that counts down from 10 seconds…" maxlength="20000" aria-describedby="inputHint"></textarea><div class="editor-bottom"><span id="inputLanguageLabel">NATURAL LANGUAGE</span><span id="charCount">0 / 20,000</span></div></div>
+                  <div class="samples-heading"><span>OR START WITH A SPARK</span><svg class="icon"><use href="#i-spark"/></svg></div>
+                  <div class="sample-chips" id="sampleChips"></div>
+                  <div class="run-row"><button class="button button-primary run-button" id="runTool"><svg class="icon"><use href="#i-spark"/></svg><span id="runLabel">Generate code</span><kbd>Ctrl ↵</kbd></button></div>
+                  <p class="input-hint" id="inputHint"><svg class="icon"><use href="#i-info"/></svg><span>Curated demo recipes. No AI service is connected.</span></p>
+                </div>
+                <div class="output-pane" id="outputPane">
+                  <div class="output-header"><span class="output-file"><svg class="icon"><use href="#i-file"/></svg><span id="outputFilename">Your next creation</span></span><div class="output-actions"><button class="icon-button" id="copyOutput" aria-label="Copy output" title="Copy output" disabled><svg class="icon"><use href="#i-copy"/></svg></button><button class="icon-button" id="downloadOutput" aria-label="Download output" title="Download output" disabled><svg class="icon"><use href="#i-download"/></svg></button></div></div>
+                  <div class="output-tabs" id="outputTabs" role="tablist" aria-label="Output views" hidden></div>
+                  <div class="output-body" id="outputBody" tabindex="0">
+                    <div class="output-empty"><div class="empty-orbit" aria-hidden="true"><span></span><svg><use href="#i-k"/></svg></div><h4>A little idea goes a long way.</h4><p>Pick an example or write your own.<br>Your next starting point is one click away.</p><button class="button button-subtle" id="emptyExample"><svg class="icon"><use href="#i-spark"/></svg><span>Try a countdown timer</span><svg class="icon"><use href="#i-arrow"/></svg></button><span class="empty-note">HAND-BUILT EXAMPLES. REAL, USABLE OUTPUT.</span></div>
+                  </div>
+                  <div class="output-footer" id="outputFooter" hidden><span id="outputStatus"><span class="status-dot"></span> Ready</span><button class="text-button tiny" id="sendToExplainer">Explain this code <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+                </div>
+              </div>
+              <p class="sr-only" id="runAnnouncement" role="status" aria-live="polite"></p>
+            </section>
+          </div>
+          <div class="workspace-statusbar"><span><svg class="icon"><use href="#i-shield"/></svg> No AI connected. No code leaves your browser.</span><span><span class="status-dot"></span> ALL SYSTEMS LOCAL</span></div>
+        </div>
+        <div class="playground-footnote reveal"><svg class="icon"><use href="#i-info"/></svg><p>This playground uses predefined examples and limited rule-based checks, not a live AI model. It’s a hands-on preview of the KODRIXA workflow. <a href="#demo-info">See what’s real <svg class="icon"><use href="#i-up-right"/></svg></a></p></div>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how-it-works" aria-labelledby="howTitle">
+      <div class="container">
+        <div class="section-heading centered reveal"><div><span class="eyebrow"><span></span> FIND YOUR FLOW <span></span></span><h2 id="howTitle">Less setup. <span class="muted-heading">More shipping.</span></h2><p>No new ritual to learn. Just a better way to do what you already love.</p></div></div>
+        <div class="steps-grid">
+          <article class="step-card reveal"><span class="step-number">01</span><span class="step-icon"><svg class="icon"><use href="#i-spark"/></svg></span><h3>Start with a spark.</h3><p>A feature you’re imagining. A bug you can’t shake. A circuit you want to bring to life. Bring the idea — it doesn’t need to be polished.</p><span class="step-caption">YOUR CURIOSITY IS THE PREREQUISITE</span></article>
+          <article class="step-card reveal"><span class="step-number">02</span><span class="step-icon"><svg class="icon"><use href="#i-code"/></svg></span><h3>Find your co-pilot.</h3><p>Choose the tool that fits the moment. Try a ready-made example, make it your own, and see the result right in your workspace.</p><span class="step-caption">FIVE TOOLS. ONE CONTINUOUS FLOW.</span></article>
+          <article class="step-card reveal"><span class="step-number">03</span><span class="step-icon"><svg class="icon"><use href="#i-up-right"/></svg></span><h3>Make the next move.</h3><p>Copy your code, download a sketch, or dig into a line-by-line explanation. Review it, test it, and take it somewhere only you would.</p><span class="step-caption">THE BEST PART IS WHAT YOU DO NEXT</span></article>
+        </div>
+        <div class="honesty-card reveal" id="demo-info">
+          <div class="honesty-copy"><span class="eyebrow"><svg class="icon"><use href="#i-shield"/></svg> BUILT ON CLARITY</span><h3>Real tools. <span class="gradient-text">Honest limits.</span></h3><p>KODRIXA is an interactive product demonstration. Generation and conversion use curated recipes; the debugger checks common patterns; the explainer uses a built-in language guide. Hardware projects include complete example sketches and wiring notes.</p><p class="honesty-emphasis">No AI model or external API is connected. Always review and test code before using it in a real project.</p><div class="honesty-chips"><span><svg class="icon"><use href="#i-check"/></svg> No account</span><span><svg class="icon"><use href="#i-check"/></svg> No uploads</span><span><svg class="icon"><use href="#i-check"/></svg> No API key</span></div></div>
+          <div class="connection-card" aria-label="Demo connection status"><div class="connection-head"><svg class="icon"><use href="#i-terminal"/></svg> behind-the-scenes</div><div><span>AI connection</span><span class="connection-off"><i></i> Not connected</span></div><div><span>Demo engine</span><span class="connection-on"><i></i> Ready</span></div><div><span>Your code</span><span class="connection-local"><svg class="icon"><use href="#i-shield"/></svg> In your browser</span></div><div><span>Curiosity required</span><span class="connection-yes">Always <svg class="icon"><use href="#i-spark"/></svg></span></div><p>$ keep_building<span class="terminal-caret" aria-hidden="true"></span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section" aria-labelledby="closingTitle">
+      <div class="closing-grid" aria-hidden="true"></div><div class="closing-k" aria-hidden="true"><svg><use href="#i-k"/></svg></div>
+      <div class="container closing-content reveal"><span class="eyebrow"><span></span> FOR THE JOY OF MAKING THINGS <span></span></span><h2 id="closingTitle">The next big thing starts<br>with <span class="gradient-text">your next line.</span></h2><p>First-time coder or seasoned builder — there’s room for your next idea here.</p><div class="hero-actions"><a class="button button-primary button-large" href="#playground">Let’s build something <svg class="icon"><use href="#i-arrow"/></svg></a><a class="button button-ghost button-large" href="#how-it-works">See how it works <svg class="icon"><use href="#i-up-right"/></svg></a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main"><div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark"><svg><use href="#i-k"/></svg></span><span>KODRIXA<span class="brand-period">.</span></span></a><p>Your ideas. A little momentum.<br>A whole lot of possibility.</p></div><div class="footer-links"><div><span>BUILD</span><a href="#tools">The toolkit</a><a href="#playground">Playground</a><a href="#playground" data-open-tool="hardware">Hardware lab</a></div><div><span>GET TO KNOW US</span><a href="#how-it-works">How it works</a><a href="#demo-info">Demo &amp; privacy</a><button class="footer-top" id="backToTop">Back to top <svg class="icon"><use href="#i-up-right"/></svg></button></div></div></div>
+    <div class="container footer-bottom"><span>© 2026 KODRIXA. Made for curious minds.</span><span><span class="status-dot"></span> A local demo. An open invitation.</span></div>
+  </footer>
+
+  <dialog class="history-dialog" id="historyDialog" aria-labelledby="historyTitle"><div class="dialog-head"><div><span class="eyebrow">YOUR SESSION</span><h3 id="historyTitle">Recent builds</h3></div><button class="icon-button" id="closeHistory" aria-label="Close history"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="dialog-description">Your last eight results, saved only in this browser.</p><div class="history-list" id="historyList"></div><div class="dialog-footer"><span><svg class="icon"><use href="#i-shield"/></svg> Local storage only</span><button class="text-button" id="clearHistory"><svg class="icon"><use href="#i-trash"/></svg> Clear history</button></div></dialog>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <noscript><div class="noscript-note">KODRIXA’s interactive tools need JavaScript. Enable it to try the local demo; the toolkit and project information are still available above.</div></noscript>
+</body>
+</html>

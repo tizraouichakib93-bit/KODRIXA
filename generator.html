@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Generator · KODRIXA</title>
+  <meta name="description" content="Describe a program in plain language and get real, editable code in 15 languages — C first. Copy or download instantly.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="platform.css">
+  <script defer src="js/core.js"></script>
+  <script defer src="js/languages.js"></script>
+  <script defer src="js/highlight.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/dropdown.js"></script>
+  <script defer src="js/synth.js"></script>
+  <script defer src="js/generate.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/pages/generator.js"></script>
+</head>
+<body>
+  <noscript><p style="padding:100px 24px;text-align:center">KODRIXA needs JavaScript to run its code tools. Please enable it and reload.</p></noscript>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Tool 01 · Generate</span>
+        <h1>Describe it. <span class="gradient-text">Get real code.</span></h1>
+        <p class="lede">Write what you want to build in plain language. KODRIXA composes a working program in your chosen language — never the same canned example twice — and hands it to you in a fully editable editor.</p>
+        <div id="modeNote" class="mode-note is-demo"></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="workbench">
+        <section class="pane" aria-label="Generation input">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>Your idea</h2>
+          </div>
+          <div class="pane-body">
+            <div class="field">
+              <div class="field-label"><span>Language</span><span>15 available · C ★</span></div>
+              <div id="genLang"></div>
+              <div class="chip-row" id="genLangChips" style="margin-top:10px"></div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="genDesc"><span>Describe the program</span><span id="genCount">0 chars</span></label>
+              <textarea class="textarea" id="genDesc" rows="6" placeholder="Write anything you want to build, in your own words — English, français, or any language. No examples to pick: just describe your idea. Details like numbers, names and steps make the code match it closely."></textarea>
+            </div>
+            <div class="run-row">
+              <button type="button" class="button button-primary" id="genRun"><svg class="icon" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9z"/></svg>Generate code</button>
+              <span class="hint">Runs locally in demo mode · live AI when connected</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="pane" aria-label="Generated code">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>Generated code</h2>
+            <div class="result-actions">
+              <button type="button" class="button button-ghost button-small" id="genCopy"><svg class="icon" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>Copy</button>
+              <button type="button" class="button button-ghost button-small" id="genDownload"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Download</button>
+            </div>
+          </div>
+          <div class="pane-body">
+            <div id="genState"></div>
+            <div id="genEditorWrap" hidden></div>
+            <div id="genNotes"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

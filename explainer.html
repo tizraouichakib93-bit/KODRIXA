@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Explainer · KODRIXA</title>
+  <meta name="description" content="Understand any snippet with a beginner-friendly, line-by-line walkthrough in 15 languages.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="platform.css">
+  <script defer src="js/core.js"></script>
+  <script defer src="js/languages.js"></script>
+  <script defer src="js/highlight.js"></script>
+  <script defer src="js/editor.js"></script>
+  <script defer src="js/dropdown.js"></script>
+  <script defer src="js/explain.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/pages/explainer.js"></script>
+</head>
+<body>
+  <noscript><p style="padding:100px 24px;text-align:center">KODRIXA needs JavaScript to run its code tools. Please enable it and reload.</p></noscript>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Tool 04 · Explain</span>
+        <h1>Every line, <span class="gradient-text">in plain language.</span></h1>
+        <p class="lede">Paste a snippet and KODRIXA reads it line by line, turning each statement into a beginner-friendly step. Lines outside the built-in guide are labelled honestly — no invented explanations.</p>
+        <div id="modeNote" class="mode-note is-demo"></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="workbench">
+        <section class="pane" aria-label="Code to explain">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h4"/></svg></span>Code to explain</h2>
+          </div>
+          <div class="pane-body">
+            <div class="field">
+              <div class="field-label"><span>Language</span></div>
+              <div id="expLang"></div>
+            </div>
+            <div class="field">
+              <div class="field-label"><span>Curated walkthroughs</span></div>
+              <div class="chip-row" id="expSamples"></div>
+            </div>
+            <div class="field">
+              <div class="field-label"><span>Paste or edit your code</span></div>
+              <div id="expSourceWrap"></div>
+            </div>
+            <div class="run-row">
+              <button type="button" class="button button-primary" id="expRun"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 1 6 6c0 2-1 3-2 4l-1 4H9l-1-4c-1-1-2-2-2-4a6 6 0 0 1 6-6z"/><path d="M9 21h6"/></svg>Explain step by step</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="pane" aria-label="Explanation">
+          <div class="pane-head">
+            <h2><span class="ph-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg></span>Step-by-step walkthrough</h2>
+            <div class="result-actions">
+              <button type="button" class="button button-ghost button-small" id="expCopy"><svg class="icon" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>Copy</button>
+              <button type="button" class="button button-ghost button-small" id="expDownload"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg>Download</button>
+            </div>
+          </div>
+          <div class="pane-body">
+            <div id="expState"></div>
+            <div id="expSummary"></div>
+            <div id="expResults"></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

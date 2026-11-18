@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KODRIXA · Your next idea. Already in code.</title>
+  <meta name="description" content="A bright, honest coding platform: generate, translate, debug and explain code in 15 languages — C first — plus curated Arduino hardware builds.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="platform.css">
+  <script defer src="js/core.js"></script>
+  <script defer src="js/languages.js"></script>
+  <script defer src="js/highlight.js"></script>
+  <script defer src="js/dropdown.js"></script>
+  <script defer src="js/api.js"></script>
+  <script defer src="js/ui.js"></script>
+  <script defer src="js/pages/home.js"></script>
+</head>
+<body>
+  <noscript><p style="padding:100px 24px;text-align:center">KODRIXA needs JavaScript to run its code tools. Please enable it and reload.</p></noscript>
+  <main>
+    <section class="home-hero">
+      <div class="container">
+        <span class="eyebrow reveal">Generate · Translate · Debug · Explain · Build</span>
+        <h1 class="reveal d1">Your next idea.<br><span class="gradient-text">Already in code.</span></h1>
+        <p class="lede reveal d2">Five focused tools, fifteen languages, one bright workspace. Describe a program, move it between languages, hunt down syntax bugs, understand every line — then wire it into the real world with Arduino.</p>
+        <div class="hero-actions reveal d3">
+          <a class="button button-primary button-large" href="generator.html"><svg class="icon" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>Start generating</a>
+          <a class="button button-ghost button-large" href="hardware.html">Explore hardware builds</a>
+        </div>
+        <div class="hero-badges reveal d4">
+          <span><i></i>15 languages · C front and center</span>
+          <span><i style="background:var(--pink)"></i>Editable, highlighted editors</span>
+          <span><i style="background:var(--blue)"></i>Honest demo mode — no fake AI</span>
+        </div>
+        <div class="hero-window reveal d5" id="heroWindow" aria-label="Live code preview">
+          <div class="hero-window-top">
+            <span class="hw-dot"></span><span class="hw-dot"></span><span class="hw-dot"></span>
+            <span class="hero-window-file" id="heroCodeLabel">main.c</span>
+            <span class="hero-window-lang" id="heroCodeLang">C</span>
+          </div>
+          <pre id="heroCode"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="toolkit">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">The toolkit</span>
+            <h2>Five tools. <span class="gradient-text">Zero guesswork.</span></h2>
+          </div>
+          <p>Each tool lives on its own page with the same language list, the same honest capability badges and the same editable editor.</p>
+        </div>
+        <div class="tool-grid">
+          <a class="card tool-card reveal" href="generator.html">
+            <span class="tc-icon"><svg class="icon" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span>
+            <h3>Code Generator</h3>
+            <p>Describe a task in plain language and get a real program — composed from your description, never a fixed example. Edit, copy and download it instantly.</p>
+            <span class="tc-foot">Open generator <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card tool-card reveal d1" href="translator.html">
+            <span class="tc-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 5h7M7 3v2c0 4-2 7-4 8"/><path d="M5 9c0 2 2 4 5 5"/><path d="m12 20 4-9 4 9M13.5 17h5"/></svg></span>
+            <h3>Code Translator</h3>
+            <p>Move logic between any of 15 languages with searchable selectors. When a conversion can’t be accurate, you get a clear limitation report — not a silent guess.</p>
+            <span class="tc-foot">Open translator <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card tool-card reveal d2" href="debugger.html">
+            <span class="tc-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="13" r="5"/><path d="M12 8V5M9 5h6M7 10 4 8M17 10l3-2M7 16l-3 2M17 16l3 2"/></svg></span>
+            <h3>Code Debugger</h3>
+            <p>Scan for syntax errors across all 15 languages. Every finding ships with the line number, a plain-language explanation and a corrected copy you can apply.</p>
+            <span class="tc-foot">Open debugger <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card tool-card reveal" href="explainer.html">
+            <span class="tc-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13"/><path d="M9 7h6M9 11h4"/></svg></span>
+            <h3>Code Explainer</h3>
+            <p>Turn any snippet into a beginner-friendly walkthrough, one line at a time. Lines outside the built-in guide are labelled, never invented.</p>
+            <span class="tc-foot">Open explainer <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card tool-card reveal d1" href="hardware.html">
+            <span class="tc-icon"><svg class="icon" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+            <h3>Hardware Projects</h3>
+            <p>Curated Arduino builds with components, a light wiring map, safety notes and ready-to-upload sketches — from first blink to plant sentinel.</p>
+            <span class="tc-foot">Open hardware <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card tool-card reveal d2" href="generator.html?lang=c">
+            <span class="tc-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M16 4h-4a8 8 0 1 0 0 16h4"/><path d="M13 8l-3 4 3 4"/></svg></span>
+            <h3>C, front and center</h3>
+            <p>The foundation language gets star billing: full generation, translation, debugging and explanation — plus printf-perfect output and Arduino-friendly C++.</p>
+            <span class="tc-foot">Generate C code ★ <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="languages" style="padding-top:20px">
+      <div class="container">
+        <div class="section-head reveal" style="justify-content:center;text-align:center">
+          <div style="width:100%">
+            <span class="eyebrow" style="justify-content:center">One list everywhere</span>
+            <h2>Fifteen languages. <span class="gradient-text-warm">Honestly labelled.</span></h2>
+          </div>
+        </div>
+        <div class="lang-strip reveal d1" id="langStrip"></div>
+        <div class="cap-legend reveal d2">
+          <span><i class="cap-full"></i>Supported</span>
+          <span><i class="cap-partial"></i>Limited (SQL / HTML-CSS where noted)</span>
+          <span><i class="cap-none"></i>Not available</span>
+          <span style="font-family:var(--mono);font-size:10px">G·T·D·E badges in every selector = generate · translate · debug · explain</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">How it works</span>
+            <h2>Three steps. <span class="gradient-text">No magic claims.</span></h2>
+          </div>
+        </div>
+        <div class="steps-grid">
+          <div class="card step-card reveal">
+            <span class="step-num">01</span>
+            <h3>Describe or paste</h3>
+            <p>Write what you want in plain language, or paste code you already have. Pick from the same 15-language list in every tool — searchable, with capability badges.</p>
+          </div>
+          <div class="card step-card reveal d1">
+            <span class="step-num">02</span>
+            <h3>Local engine or live AI</h3>
+            <p>With no backend configured, the bundled engine composes results in your browser and the header says “Demo mode”. Connect <code style="font-family:var(--mono);font-size:12px">server.py</code> with a provider key for live AI — the key never touches frontend code.</p>
+          </div>
+          <div class="card step-card reveal d2">
+            <span class="step-num">03</span>
+            <h3>Edit, copy, ship</h3>
+            <p>Results land in a syntax-highlighted, fully editable editor with live line counts. Copy to clipboard, download a real file, apply fixes or walk the explanation — then build.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trust" style="padding-top:20px">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Transparency</span>
+            <h2>What’s real, <span class="gradient-text">and what’s demo.</span></h2>
+          </div>
+          <p>KODRIXA never pretends an AI answered when it didn’t. The mode pill in the header always tells you which engine produced a result.</p>
+        </div>
+        <div class="split-note">
+          <div class="card reveal">
+            <h3><span class="pill-label pill-demo">Demo mode</span> Bundled engine</h3>
+            <p>Generation composes programs from an intermediate representation across 13 general-purpose languages, SQL and HTML/CSS. Translation covers a structural subset (loops, conditionals, functions, assignments, output) and reports anything outside it. Debugging is a syntax heuristic, not a compiler. Explanations label lines beyond the built-in guide. Everything runs locally — no network, no keys, no pretending.</p>
+          </div>
+          <div class="card reveal d1">
+            <h3><span class="pill-label pill-live">Live AI</span> Secure backend</h3>
+            <p>Run <code>python server.py</code> with <code>KODRIXA_API_KEY</code> set in the server environment (optionally <code>KODRIXA_API_BASE</code> and <code>KODRIXA_MODEL</code>). The browser talks only to the same-origin <code>/api/*</code> proxy; the provider key stays server-side and is never shipped to frontend JavaScript. The header switches to “AI connected” automatically.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-band">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center">Ready when you are</span>
+        <h2>Stop staring at a blank file.<br><span class="gradient-text">Start with working code.</span></h2>
+        <p>Open the generator, describe your idea, and watch it become a program you can edit, run and ship.</p>
+        <div class="hero-actions">
+          <a class="button button-primary button-large" href="generator.html">Open the generator <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="button button-ghost button-large" href="translator.html">Try the translator</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
