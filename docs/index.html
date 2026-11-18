@@ -128,7 +128,7 @@
           <div class="card step-card reveal d1">
             <span class="step-num">02</span>
             <h3>Local engine or live AI</h3>
-            <p>With no backend configured, the bundled engine composes results in your browser and the header says “Demo mode”. Connect <code style="font-family:var(--mono);font-size:12px">server.py</code> with a provider key for live AI — the key never touches frontend code.</p>
+            <p>With no backend configured, the bundled engine composes results in your browser and the header says “Demo mode”. Connect <code style="font-family:var(--mono);font-size:12px">backend/server.py</code> with a provider key for live AI — the key never touches frontend code.</p>
           </div>
           <div class="card step-card reveal d2">
             <span class="step-num">03</span>
@@ -155,7 +155,7 @@
           </div>
           <div class="card reveal d1">
             <h3><span class="pill-label pill-live">Live AI</span> Secure backend</h3>
-            <p>Run <code>python server.py</code> with <code>KODRIXA_API_KEY</code> set in the server environment (optionally <code>KODRIXA_API_BASE</code> and <code>KODRIXA_MODEL</code>). The browser talks only to the same-origin <code>/api/*</code> proxy; the provider key stays server-side and is never shipped to frontend JavaScript. The header switches to “AI connected” automatically.</p>
+            <p>Run <code>python backend/server.py</code> with <code>KODRIXA_API_KEY</code> set in the server environment (optionally <code>KODRIXA_API_BASE</code> and <code>KODRIXA_MODEL</code>). The browser talks only to the same-origin <code>/api/*</code> proxy; the provider key stays server-side and is never shipped to frontend JavaScript. The header switches to “AI connected” automatically.</p>
           </div>
         </div>
       </div>

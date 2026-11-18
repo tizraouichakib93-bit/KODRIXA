@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """KODRIXA server — static site + secure same-origin AI proxy (stdlib only).
 
-Run:
-    python server.py
+Run (from the repository root):
+    python backend/server.py
 
 Live AI (optional): set these in the SERVER environment, never in frontend code:
     KODRIXA_API_KEY   provider API key (required for live mode)
@@ -23,7 +23,9 @@ import urllib.error
 import urllib.request
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
+# Serve the frontend from ../docs (repo root/docs), regardless of the
+# directory the server is launched from.
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "docs"))
 MAX_BODY = 1024 * 1024  # 1 MB request cap
 PROVIDER_TIMEOUT = 60
 OPS = ("generate", "translate", "debug", "explain")

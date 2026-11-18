@@ -1,5 +1,5 @@
 /* KODRIXA API client. Talks ONLY to the same-origin backend (/api/*).
-   API keys live exclusively in server.py environment variables — never here.
+   API keys live exclusively in backend/server.py environment variables — never here.
    When the backend is absent or unconfigured the client reports demo mode and the
    pages fall back to the local engine, clearly labelled. */
 window.KX = window.KX || {};

@@ -47,7 +47,7 @@ window.KX = window.KX || {};
       '<div class="container footer-inner">' +
       '<div class="footer-brand"><span class="brand-mark">' + ICON.logo + '</span><div><strong>KODRIXA</strong><p>Your next idea. Already in code.</p></div></div>' +
       '<nav class="footer-links" aria-label="Footer">' + NAV.map(([id, href, label]) => '<a href="' + href + '">' + label + '</a>').join('') + '</nav>' +
-      '<p class="footer-note">The bundled engine runs entirely in your browser (demo mode). For live AI, run <code>server.py</code> with a provider key set server-side. Keys never reach frontend JavaScript.</p>' +
+      '<p class="footer-note">The bundled engine runs entirely in your browser (demo mode). For live AI, run <code>python backend/server.py</code> with a provider key set server-side. Keys never reach frontend JavaScript.</p>' +
       '</div>';
     document.body.appendChild(footer);
     // mobile menu
@@ -81,8 +81,8 @@ window.KX = window.KX || {};
     const paint = (m) => {
       el.className = 'mode-note ' + (m === 'live' ? 'is-live' : 'is-demo');
       el.innerHTML = m === 'live'
-        ? '<span class="mode-dot"></span><div><strong>Live AI backend.</strong> Requests are proxied by <code>server.py</code>; the provider key stays on the server.</div>'
-        : '<span class="mode-dot"></span><div><strong>Demo mode — no AI connected.</strong> Results come from the local KODRIXA engine. Run <code>python server.py</code> with <code>KODRIXA_API_KEY</code> set to enable live generation, translation and debugging.</div>';
+        ? '<span class="mode-dot"></span><div><strong>Live AI backend.</strong> Requests are proxied by <code>backend/server.py</code>; the provider key stays on the server.</div>'
+        : '<span class="mode-dot"></span><div><strong>Demo mode — no AI connected.</strong> Results come from the local KODRIXA engine. Run <code>python backend/server.py</code> with <code>KODRIXA_API_KEY</code> set to enable live generation, translation and debugging.</div>';
     };
     K.api.onMode(paint);
   }
